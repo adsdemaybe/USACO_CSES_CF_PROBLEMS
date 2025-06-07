@@ -1,6 +1,9 @@
 import sys
 
 def main():
+    # sys.stdin = open("diamond.in", 'r')
+    # sys.stdout = open("diamond.out", 'w')
+    
     [n, k] = list(map(int, sys.stdin.readline().strip().split()))
     diamonds = []
     for _ in range(n):
