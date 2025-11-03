@@ -1,11 +1,21 @@
 def solve(k):
-    # 1 2 3 4 5 6 7 8 9 1  0  1  1  1  2  1  3  1  4  1  5  1  6  1  7  1  8  1  9 
-    # 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29
-    # k = 27
-    # k = 18
-    # find for which number the kth digit belongs to
+    if k < 10:
+        return k
     
-    return
+    digit = 1
+    start = 1
+    count = 9
+    while k > digit * count:
+        k -= digit * count
+        digit += 1
+        count *= 10
+        start *= 10
+    number = start + (k - 1) // digit
+    
+    sum_digits = (number - 1)*(number) // 2
+    sum_digits += sum(map(int, list(str(number)[:(k - 1) % digit])))
+    
+    return sum_digits
 
 def main():
     for _ in range(int(input())):
